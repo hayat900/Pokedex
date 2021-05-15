@@ -1,26 +1,31 @@
 import React from "react";
 import Pokecard from '../Pokecard/Pokecard';
 import "./Pokelist.css";
+import { PokemonSchema } from "../../types/PokemonSchema";
+import { pokemonData } from "../../data/pokemonData";
+interface PokedexProps {
+    searchedPokemons: PokemonSchema[];
+}
 
-
-
-const Pokelist = () => {
+const Pokelist = ({searchedPokemons}:PokedexProps) => {
     return (
         <div className="pokelist">
-           <Pokecard name="Tyrannosaurus Rex"/>
-
+           {
+               searchedPokemons.map((pokemon)=>{
+                   if(pokemon.name)
+                   {
+                    return(
+                        <Pokecard
+                        key={pokemon.id}
+                        name={pokemon.name}
+                        spriteurl={pokemon.sprites.normal}
+                        />
+                    )
+                   }
+               }
+               )
            
-           <Pokecard name=" Stegosaurus"/>
-               
-           
-           <Pokecard name="Triceratops"/>
-               
-          
-           <Pokecard name="Velociraptor"/>
-               
-           
-           <Pokecard name="Spinosaurus"/>
-               
+           }   
           
         </div>
     );

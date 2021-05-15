@@ -1,9 +1,16 @@
 import "./searchbox.css";
+interface SearchboxProps {
+    onInputChange: (inputvalue: string) => void;
+}
 
-
-const Searchbox = () => {
+const Searchbox = ({onInputChange}:SearchboxProps) => {
     return (
-        <input
+        <input onChange={
+            (e)=>{
+                console.log(e.target.value);
+                onInputChange(e.target.value);
+            }
+        }
             className="search"
             
             type="search"

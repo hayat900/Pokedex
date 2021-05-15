@@ -44,6 +44,26 @@ class App extends React.Component<any,Appstate>{
         });
         return patchedPokemons;
     }
+    handleInputChange = (inputValue: string) => {
+        //const searchField = inputValue;
+
+        
+
+        const searchedPokemons = this.state.allPokemons.filter(
+            (pokemon: PokemonSchema) => {
+                
+                    if(pokemon.name) 
+                    {
+                        return(
+                            pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
+                            );
+                    }
+            }
+        );
+
+        this.setState({ searchField:inputValue, searchedPokemons:searchedPokemons });
+
+    }
     componentDidMount(){
         const patchedPokemons: PokemonSchema[] = this.patchPokemonData( //this method is present above didmount
             pokemonData  //this is retrned from data folder
@@ -60,8 +80,9 @@ console.log(patchedPokemons);
         return (
             <div className="App">
                 <h1>Pokedex</h1>
-                <Pokedx
-                   
+                <Pokedx searchedPokemons=
+                   {this.state.searchedPokemons}
+                  onInputChange={this.handleInputChange}
                 />
                 
             </div>

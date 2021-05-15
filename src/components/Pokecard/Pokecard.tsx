@@ -2,12 +2,15 @@ import React from "react";
 import "./Pokecard.css";
 
 
-
-const Pokecard = (props:any) => {
+interface pokecardprops{
+    name:string|undefined;
+    spriteurl:string|undefined;
+}
+const Pokecard = ({name,spriteurl}:pokecardprops) => {
     return (
         <div className="pokecard">
-            {/* <img className="pokemon-sprite" alt="pokemon" src={spriteUrl} /> */}
-            <p>{props.name}</p>
+            <img className="pokemon-sprite" alt="pokemon" src={spriteurl} />
+            <p>{name}</p>
         </div>
     );
 };
