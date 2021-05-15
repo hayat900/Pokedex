@@ -1,0 +1,12 @@
+body{
+    background-color: #dbf6e9;
+    color: #162447;
+}
+.App {
+    text-align: center;
+}
+
+h1 {
+    font-size: 57px;
+    font-family: "Playfair Display", cursive;
+}
