@@ -11,3 +11,8 @@
     flex-grow: 1;
     font-family: "Playfair Display", cursive;
 }
+.pokemon-animated-sprite {
+    height: 120px;
+    width: 120px;
+    padding: 12px;
+}

@@ -1,29 +1,32 @@
 import React from "react";
 
 import "./poksearch.css";
+import { PokemonSchema } from "../../types/PokemonSchema";
+interface PokeSearchResultProps {
+    selectedPokemon: PokemonSchema | undefined;
+}
 
-
-
-const PokeSearchResult = () => {
-    const selectedPokemon=false;
+const PokeSearchResult = ({ selectedPokemon }: PokeSearchResultProps) => {
+    const { name, id, height, weight, base_experience, sprites } =
+        selectedPokemon || {};
 
     return (
         <div className="poke-result-card">
             {selectedPokemon ? (
                 <div>
-                    {/* <img
+                    <img
                         className="pokemon-animated-sprite"
                         alt="pokemon"
                         src={sprites?.animated || sprites?.normal}
-                    /> */}
-                    <p>Name: Mantis Shrimp</p>
-                    <p>Id: some id</p>
-                    <p>Height: 45</p>
-                    <p>Weight: 23</p>
-                    <p>Base Exp: 21</p>
+                    />
+                    <p>Name: {name}</p>
+                    <p>Id: {id}</p>
+                    <p>Height: {height}</p>
+                    <p>Weight: {weight}</p>
+                    <p>Base Exp: {base_experience}</p>
                 </div>
             ) : (
-                <h2> Welcome to the pokedex</h2>
+                <h2> Welcome to  Pokedex</h2>
             )}
         </div>
     );
